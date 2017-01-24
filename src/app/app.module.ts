@@ -10,9 +10,10 @@ import 'hammerjs';
 import './rxjs-operators';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './shared/menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
+import { PageHeaderComponent } from './shared/page-header/page-header.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     MenuComponent,
     HomeComponent,
-    TodoComponent
+    TodoComponent,
+    PageHeaderComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

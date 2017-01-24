@@ -1,7 +1,27 @@
-<h2>Project List</h2>
-<p><i>Pick a project from the list</i></p>
-<ul>
-    <li *ngFor="let project of projects" (click)="selectProject(project)">
-        <a href="{{project.html_url}}" target="_blank">{{project.name}}</a>
-    </li>
-</ul>
+<md-card class="form-card">
+    <md-card-content>
+        <h2>Filters</h2>
+        <form novalidate (ngSubmit)="onSubmit(searchForm)" [formGroup]="searchForm">
+            <section class="example-section">
+                <md-checkbox class="example-margin" formControlName="owner">Owned</md-checkbox>
+                <md-checkbox class="example-margin" formControlName="fork">Forked</md-checkbox>
+            </section>
+        </form>
+    </md-card-content>
+</md-card>
+
+<md-grid-list cols="5" gutterSize="10">
+    <md-grid-tile *ngFor="let project of projects">
+        <md-card class="project-card">
+            <md-card-header>
+                <md-card-title>{{project.name}}</md-card-title>
+            </md-card-header>
+            <md-chip-list>
+                <md-chip color="primary" selected="true">{{project.fork? 'fork' : 'owner'}}</md-chip>
+            </md-chip-list>
+            <md-card-actions>
+                <a md-button href="{{project.html_url}}" target="_blank">SEE</a>
+            </md-card-actions>
+        </md-card>
+    </md-grid-tile>
+</md-grid-list>

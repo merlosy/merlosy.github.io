@@ -7,4 +7,15 @@ body {
 
 .card-container {
     padding: 20px;
+    background-color: #EEEEEE;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #777;
 }
