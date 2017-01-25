@@ -14,7 +14,6 @@ export class ProjectsService {
   }
   
   private extractData(res: Response) {
-    console.debug(res.json());
     const body = res.json();
     return body;
   }

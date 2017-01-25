@@ -41,7 +41,7 @@ export class ListComponent implements OnInit {
               u.push(i);
             }
           }
-          console.log(p, u, fork, own);
+          // console.log(p, u, fork, own);
           return u;
         })
         .subscribe(

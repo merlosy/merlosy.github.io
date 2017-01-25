@@ -5,19 +5,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ListComponent } from './list/list.component';
-import { FiltersPipe } from './filters.pipe';
+import { ProjectsComponent } from './projects.component';
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
-    ListComponent
+    ProjectsComponent
   ],
-  declarations: [ListComponent, FiltersPipe],
+  declarations: [
+    ListComponent,
+    ProjectsComponent
+  ],
   providers: [
     ProjectsService
   ],
