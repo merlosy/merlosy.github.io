@@ -11,11 +11,27 @@
 </md-card>
 
 <md-grid-list cols="5" gutterSize="10">
-    <md-grid-tile *ngFor="let project of projects">
+    <md-grid-tile *ngFor="let project of projects | async">
+
         <md-card class="project-card">
             <md-card-header>
                 <md-card-title>{{project.name}}</md-card-title>
+                <button md-icon-button (click)="open(project)">
+                    <md-icon class="example-icon">more_horiz</md-icon>
+                </button>
             </md-card-header>
+            <div class="tools">
+                <div><button md-icon-button (click)="open(project)">
+                    <md-icon class="example-icon">more_horiz</md-icon>
+                </button></div>
+                <div><button md-icon-button>
+                    <md-icon class="example-icon">error_outline</md-icon>
+                </button></div>
+                <div><button md-icon-button>
+                    <md-icon class="example-icon">star</md-icon>
+                </button></div>
+            </div>
+            <p>{{project.description}}</p>
             <md-chip-list>
                 <md-chip color="primary" selected="true">{{project.fork? 'fork' : 'owner'}}</md-chip>
             </md-chip-list>
@@ -23,5 +39,6 @@
                 <a md-button href="{{project.html_url}}" target="_blank">SEE</a>
             </md-card-actions>
         </md-card>
+
     </md-grid-tile>
 </md-grid-list>

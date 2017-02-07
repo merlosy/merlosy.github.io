@@ -1,21 +1,45 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ProjectsService {
 
-  constructor(private http: Http) { }
+  // const PREFIX = 'https://api.github.com/',
+  private readonly PREFIX = 'https://api.github.com/';
+  private headers: Headers;
 
-  getProjects (): Observable<any[]> {
-    return this.http.get('https://api.github.com/users/merlosy/repos')
-                    .map(this.extractData)
+  /**
+   * @see https://developer.github.com/v3/
+   */
+  constructor(private http: Http) {
+    this.headers = new Headers();
+    this.headers.append('Accept', 'application/vnd.github.v3+json');
+  }
+
+  /**
+   * Get "merlosy" projects
+   * @see https://developer.github.com/v3/projects/#list-organization-projects
+   */
+  getProjects(): Observable<any[]> {
+    const options = new RequestOptions({ headers: this.headers });
+    return this.http.get('https://api.github.com/users/merlosy/repos', options)
+                    .map(res => res.json() as any[])
                     .catch(this.handleError);
   }
-  
-  private extractData(res: Response) {
-    const body = res.json();
-    return body;
+
+  getProjectIssues(projectId: string, issueId?: number): Observable<any[]> {
+    const options = new RequestOptions({ headers: this.headers });
+    return this.http.get(`https://api.github.com/repos/merlosy/${projectId}/issues${issueId ? '/' + issueId : ''}`, options)
+                    .map(res => res.json() as any[])
+                    .catch(this.handleError);
+  }
+
+  getProjectDetails(projectId: string): Observable<any[]> {
+    const options = new RequestOptions({ headers: this.headers });
+    return this.http.get(`https://api.github.com/repos/merlosy/repos/${projectId}`, options)
+                    .map(res => res.json() as any[])
+                    .catch(this.handleError);
   }
 
   private handleError (error: Response | any) {

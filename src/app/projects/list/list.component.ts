@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { ProjectsService } from './../projects.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -5,14 +6,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-project-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css'],
+  styleUrls: ['./list.component.scss'],
   providers:  [ ProjectsService ]
 })
 export class ListComponent implements OnInit {
-  projects: any[] = [];
+  projects: Observable<any[]>;
   errorMessage: string;
   selectedProject: any;
   searchForm: FormGroup;
+  private projectDetails: any[];
 
   constructor(private service: ProjectsService, private fb: FormBuilder) { }
 
@@ -23,15 +25,30 @@ export class ListComponent implements OnInit {
       owner: [true]
     });
 
-    this.searchForm.valueChanges.subscribe( data => this.getProjects() );
+    this.searchForm.valueChanges
+      .debounceTime(200)
+      .distinctUntilChanged()
+      .subscribe( data => this.getProjects(),
+        error =>  this.errorMessage = <any>error
+        );
   }
 
   onSubmit({ value, valid }: { value: SearchForm, valid: boolean }) {
     console.log(value, valid);
   }
 
-  getProjects(){
-    this.service.getProjects()
+  open(project) {
+    console.log(project);
+    // this.projectDetails = this.service.getProjectIssues(project.name)
+    this.service.getProjectIssues(project.name)
+      .map(u => {console.log(u); return u; })
+      .subscribe(
+            p => this.projectDetails = p,
+            error =>  this.errorMessage = <any>error);
+  }
+
+  getProjects() {
+    this.projects = this.service.getProjects()
         .map(p => {
           const fork = this.searchForm.get('fork').value;
           const own = this.searchForm.get('owner').value;
@@ -41,12 +58,12 @@ export class ListComponent implements OnInit {
               u.push(i);
             }
           }
-          // console.log(p, u, fork, own);
+          console.log('getProjects', u);
           return u;
         })
-        .subscribe(
-            projects => this.projects = projects,
-            error =>  this.errorMessage = <any>error)
+        // .subscribe(
+        //     projects => this.projects = projects,
+        //     error =>  this.errorMessage = <any>error)
         ;
   }
 
