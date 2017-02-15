@@ -1,0 +1,84 @@
+@import '../../../styles/merlosy-theme';
+$card-width: 60px;
+:host {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+     :host {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+     :host {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+     :host {
+        width: 33.3333%;
+    }
+}
+
+@media (min-width: 1250px) {
+     :host {
+        width: 25%;
+    }
+}
+
+md-card {
+    padding-right: calc(#{$card-width} + 10px);
+    min-height: 130px;
+}
+
+md-card-title>* {
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.tools {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    width: $card-width;
+    height: 100%;
+    color: md-color($merlosy-accent);
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.tools>* {
+    text-align: center;
+}
+
+.badge-icon {
+    position: relative;
+}
+
+.badge-icon>* {
+    padding: 8px;
+}
+
+.badge-icon .badge {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    color: #fff;
+    display: inline-block;
+    padding: 2px 5px 1px;
+    box-sizing: border-box;
+    background-color: md-color($merlosy-warn);
+    border-radius: 8px;
+    font-size: 0.8rem;
+}

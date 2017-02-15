@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ListComponent } from './list/list.component';
+import { CardComponent } from './card/card.component';
 import { ProjectsComponent } from './projects.component';
 import { SharedModule } from './../shared/shared.module';
 
@@ -21,6 +22,7 @@ import { SharedModule } from './../shared/shared.module';
   ],
   declarations: [
     ListComponent,
+    CardComponent,
     ProjectsComponent
   ],
   providers: [
