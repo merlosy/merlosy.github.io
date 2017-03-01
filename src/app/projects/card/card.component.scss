@@ -55,7 +55,7 @@ md-card-title>* {
     flex-wrap: nowrap;
     width: $card-width;
     height: 100%;
-    color: md-color($merlosy-accent);
+    color: mat-color($merlosy-accent);
     padding-top: 10px;
     box-sizing: border-box;
 }
@@ -80,7 +80,7 @@ md-card-title>* {
     display: inline-block;
     padding: 2px 5px 1px;
     box-sizing: border-box;
-    background-color: md-color($merlosy-warn);
+    background-color: mat-color($merlosy-warn);
     border-radius: 8px;
     font-size: 0.8rem;
 }
