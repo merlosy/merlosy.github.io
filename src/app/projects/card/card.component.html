@@ -1,0 +1,33 @@
+<md-card class="project-card">
+    <md-card-header>
+        <md-card-title>
+            <h3>{{project.name}}</h3>
+        </md-card-title>
+        <!--<button md-icon-button (click)="open(project)">
+            <md-icon class="example-icon">more_horiz</md-icon>
+        </button>-->
+    </md-card-header>
+    <div class="tools">
+        <div class="badge-icon">
+            <md-icon class="example-icon">star</md-icon>
+            <span class="badge" *ngIf="project.stargazers_count>0">{{project.stargazers_count}}</span>
+        </div>
+        <!--<div class="badge-icon">
+            <md-icon class="example-icon">remove_red_eye</md-icon>
+            <span class="badge" *ngIf="project.watchers_count>0">{{project.watchers_count}}</span>
+        </div>-->
+        <div><button md-icon-button>
+            <md-icon class="example-icon">error_outline</md-icon>
+        </button></div>
+        <div><button md-icon-button (click)="open(project)">
+            <md-icon class="example-icon">more_horiz</md-icon>
+        </button></div>
+    </div>
+    <p>{{project.description}}</p>
+    <md-chip-list>
+        <md-chip color="primary" selected="true">{{project.fork? 'fork' : 'owner'}}</md-chip>
+    </md-chip-list>
+    <md-card-actions>
+        <a md-button href="{{project.html_url}}" target="_blank">SEE</a>
+    </md-card-actions>
+</md-card>

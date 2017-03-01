@@ -1,0 +1,15 @@
+<md-card class="form-card">
+    <md-card-content>
+        <h2>Filters</h2>
+        <form novalidate (ngSubmit)="onSubmit(searchForm)" [formGroup]="searchForm">
+            <section class="example-section">
+                <md-checkbox class="example-margin" formControlName="owner">Owned</md-checkbox>
+                <md-checkbox class="example-margin" formControlName="fork">Forked</md-checkbox>
+            </section>
+        </form>
+    </md-card-content>
+</md-card>
+
+<div class="grid-container">
+    <app-projects-card *ngFor="let project of projects | async" [project]="project"></app-projects-card>
+</div>

@@ -1,0 +1,7 @@
+@import '../../../styles/merlosy-theme';
+:host {
+    display: block;
+    padding: 50px;
+    color: #fff;
+    background-color: mat-color($merlosy-primary);
+}
