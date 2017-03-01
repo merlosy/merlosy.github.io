@@ -31,7 +31,9 @@ $card-width: 60px;
 
 md-card {
     padding-right: calc(#{$card-width} + 10px);
-    min-height: 130px;
+    // min-height: 130px;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 md-card-title>* {
