@@ -1,9 +1,16 @@
-/* tslint:disable:no-unused-variable */
+import { ActivatedRoute } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './card/card.component';
+import { MaterialModule } from '@angular/material';
+import { PageHeaderComponent } from './../shared/page-header/page-header.component';
+import { ListComponent } from './list/list.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 import { ProjectsComponent } from './projects.component';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import MockRouter from '../../test/MockRouter.spec';
+import 'hammerjs';
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
@@ -11,7 +18,19 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectsComponent ]
+      declarations: [
+        ProjectsComponent,
+        ListComponent,
+        PageHeaderComponent,
+        CardComponent
+      ],
+      imports: [
+        MaterialModule,
+        ReactiveFormsModule
+      ],
+      providers: [
+        {provide: ActivatedRoute,  useClass: MockRouter },
+      ]
     })
     .compileComponents();
   }));

@@ -1,0 +1,19 @@
+<h1 md-dialog-title>{{project.name}}</h1>
+<div md-dialog-content>
+    <div *ngIf="!project.subscribers_count" class="centered">
+        <md-spinner></md-spinner>
+    </div>
+    <div *ngIf="project.subscribers_count">
+        <p>{{project.description}}</p>
+        <div md-chip-list>
+            <div md-chip color="accent" selected="true">Subscribers<span class="chip-badge">{{project.subscribers_count}}</span></div>
+            <div md-chip color="primary" selected="true">Stargazers<span class="chip-badge">{{project.stargazers_count}}</span></div>
+            <div md-chip>Forks<span class="chip-badge">{{project.forks_count}}</span></div>
+            <div md-chip color="warn" selected="true">Open Issues<span class="chip-badge">{{project.open_issues_count}}</span></div>
+        </div>
+    </div>
+</div>
+<div md-dialog-actions class="actions">
+    <button md-raised-button md-dialog-close>Close</button>
+    <!--<button md-raised-button (click)="dialogRef.close('yes')">Yes</button>-->
+</div>

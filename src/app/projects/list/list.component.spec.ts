@@ -1,3 +1,6 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './../card/card.component';
+import { MaterialModule } from '@angular/material';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -11,7 +14,14 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      declarations: [
+        ListComponent,
+        CardComponent
+      ],
+      imports: [
+        MaterialModule,
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
   }));

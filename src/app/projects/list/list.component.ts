@@ -2,9 +2,10 @@ import { Observable } from 'rxjs/Observable';
 import { ProjectsService } from './../projects.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-project-list',
+  selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   providers:  [ ProjectsService ]
@@ -16,7 +17,7 @@ export class ListComponent implements OnInit {
   searchForm: FormGroup;
   private projectDetails: any[];
 
-  constructor(private service: ProjectsService, private fb: FormBuilder) { }
+  constructor(private service: ProjectsService, private fb: FormBuilder, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
     this.getProjects();
@@ -31,10 +32,6 @@ export class ListComponent implements OnInit {
       .subscribe( data => this.getProjects(),
         error =>  this.errorMessage = <any>error
         );
-  }
-
-  onSubmit({ value, valid }: { value: SearchForm, valid: boolean }) {
-    console.log(value, valid);
   }
 
   open(project) {
@@ -60,6 +57,12 @@ export class ListComponent implements OnInit {
           }
           console.log('getProjects', u);
           return u;
+        })
+        .catch( (error, caught) => {
+          console.log(error, caught);
+          const data = JSON.parse(error._body);
+          this.snackBar.open(data.message, 'Close');
+          return Observable.of([]);
         })
         // .subscribe(
         //     projects => this.projects = projects,

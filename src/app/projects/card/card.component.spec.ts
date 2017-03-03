@@ -1,4 +1,4 @@
-/* tslint:disable:no-unused-variable */
+import { MaterialModule } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -11,7 +11,10 @@ describe('CardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardComponent ]
+      declarations: [ CardComponent ],
+      imports: [
+        MaterialModule
+      ]
     })
     .compileComponents();
   }));

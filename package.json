@@ -8,7 +8,8 @@
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "deploy": "git subtree push --prefix dist origin master"
     },
     "private": true,
     "dependencies": {
@@ -32,6 +33,7 @@
         "@types/jasmine": "2.5.38",
         "@types/node": "~6.0.60",
         "@types/hammerjs": "^2.0.34",
+        "@types/core-js": "^0.9.35",
         "codelyzer": "~2.0.0",
         "jasmine-core": "~2.5.2",
         "jasmine-spec-reporter": "~3.2.0",
