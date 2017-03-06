@@ -9,8 +9,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "predeploy": "ng build --prod -aot && git commit -am \"auto-deploy 1\" && git checkout master",
-        "deploy": "git checkout dev-ng -- dist && git commit -am \"auto-deploy 2\" && git subtree push --prefix dist origin master"
+        "deploy": "./bin/deploy.sh"
     },
     "private": true,
     "dependencies": {
