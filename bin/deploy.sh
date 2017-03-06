@@ -6,6 +6,9 @@ ng build --prod -aot
 git commit -am "auto-deploy 1"
 # on passe sur le master et on recupère le rep build
 git checkout master
+git rm -rf dist
+git commit -am "clean predeploy"
+git push -f origin master
 git checkout dev-ng -- dist
 git commit -am "auto-deploy 2"
 git subtree push --prefix dist origin master
