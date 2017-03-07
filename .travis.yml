@@ -30,9 +30,9 @@ before_script:
 - npm install -g codecov
 - npm install coveralls
 - npm install
-- ng lint
+#- ng lint
 - ng build
-- ng serve & ng e2e
+#- ng serve & ng e2e
 - ng test --watch=false --code-coverage
 
 script:
