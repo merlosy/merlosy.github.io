@@ -7,6 +7,8 @@ git add -A dist
 git commit -am "pre-deploy"
 # on passe sur le master et on recupère le rep build
 git checkout master
+git rm -rf dist
+git push origin master
 git checkout dev-ng -- dist
 git add -A dist
 git commit -am "deploy"
