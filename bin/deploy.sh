@@ -14,7 +14,7 @@ ls -al
 rm *.js index.html favicon.icon *.css
 cp dist/* .
 rm -r dist
-git add -u
+git add index.html *.js *.css favicon.ico
 git status
 #git push -f origin master
 # On recupère les dernieres source buildes
