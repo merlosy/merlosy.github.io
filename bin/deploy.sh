@@ -14,6 +14,7 @@ git add -A dist
 git commit -am "deploy"
 #git push -f origin master
 #git commit -am "auto-deploy 2"
-git subtree push --prefix dist origin master
+#git subtree push --prefix dist origin master
+git push origin `git subtree split --prefix dist master`:master --force
 
 git checkout dev-ng
