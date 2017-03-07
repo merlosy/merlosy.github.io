@@ -4,6 +4,7 @@
 [![devDependencies Status](https://david-dm.org/merlosy/merlosy.github.io/dev-status.svg)](https://david-dm.org/merlosy/merlosy.github.io?type=dev)
 [![Coverage Status](https://coveralls.io/repos/github/merlosy/merlosy.github.io/badge.svg?branch=dev-ng)](https://coveralls.io/github/merlosy/merlosy.github.io?branch=dev-ng)
 [![Known Vulnerabilities](https://snyk.io/test/github/merlosy/merlosy.github.io/badge.svg)](https://snyk.io/test/github/merlosy/merlosy.github.io)
+[![Code Climate](https://lima.codeclimate.com/github/merlosy/merlosy.github.io/badges/gpa.svg)](https://lima.codeclimate.com/github/merlosy/merlosy.github.io)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
 
