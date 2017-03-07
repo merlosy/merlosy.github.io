@@ -37,5 +37,5 @@ script:
  - ng test --watch=false --code-coverage
  
 after_success:
- #- codecov
+ - codecov
  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

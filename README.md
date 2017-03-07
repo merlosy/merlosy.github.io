@@ -6,6 +6,8 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/merlosy/merlosy.github.io/badge.svg)](https://snyk.io/test/github/merlosy/merlosy.github.io)
 [![Code Climate](https://lima.codeclimate.com/github/merlosy/merlosy.github.io/badges/gpa.svg)](https://lima.codeclimate.com/github/merlosy/merlosy.github.io)
 [![Build Status](https://travis-ci.org/merlosy/merlosy.github.io.svg?branch=dev-ng)](https://travis-ci.org/merlosy/merlosy.github.io)
+[![codecov](https://codecov.io/gh/merlosy/merlosy.github.io/branch/dev-ng/graph/badge.svg)](https://codecov.io/gh/merlosy/merlosy.github.io)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
 
