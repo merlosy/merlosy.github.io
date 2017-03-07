@@ -24,10 +24,12 @@
         </div>
     </div>
     <p>{{project.description}}</p>
+    <!-- Place this tag where you want the button to render. -->
+    <!--<a class="github-button" [href]="project.html_url" data-icon="octicon-star" [attr.data-count-href]="project.full_name+'/stargazers'" [attr.data-count-api]="'/repos/'+project.full_name+'#stargazers_count'" data-count-aria-label="# stargazers on GitHub" [attr.aria-label]="'Star '+project.full_name+' on GitHub'">Star</a>-->
     <md-chip-list>
         <md-chip color="primary" selected="true">{{project.fork? 'fork' : 'owner'}}</md-chip>
     </md-chip-list>
     <md-card-actions>
-        <a md-button href="{{project.html_url}}" target="_blank">SEE</a>
+        <a md-button [href]="project.html_url" target="_blank">SEE</a>
     </md-card-actions>
 </md-card>
