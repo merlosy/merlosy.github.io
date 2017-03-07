@@ -17,7 +17,6 @@ export class ProjectsService {
     this.headers = new Headers();
     // this.headers.append('Accept', 'application/vnd.github.v3+json');
     this.headers.append('Accept', 'application/vnd.github.inertia-preview+json');
-    this.headers.append('Authorization', 'token 25deeb8c575b8a013668bd3df1ebbba2856b2349');
   }
 
   /**
