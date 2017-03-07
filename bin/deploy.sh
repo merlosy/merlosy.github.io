@@ -8,11 +8,11 @@ git commit -am "pre-deploy"
 # on passe sur le master et on recupère le rep build
 git checkout master
 # on nettoie la remote
-git rm -rf dist
+rm -rf dist
 git push -f origin master
 # On recupère les dernieres source buildes
 git checkout dev-ng -- dist
-#git add -A dist
+git add -A dist
 git commit -am "deploy 1"
 #git push -f origin master
 #git commit -am "auto-deploy 2"
