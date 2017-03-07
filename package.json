@@ -6,10 +6,13 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-        "test": "ng test",
+        "test": "ng test watch=false --code-coverage",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "deploy": "./bin/deploy.sh"
+    },
+    "engines": {
+        "node": ">=6"
     },
     "private": true,
     "dependencies": {
