@@ -7,6 +7,7 @@ import { DebugElement } from '@angular/core';
 
 import { MenuComponent } from './menu.component';
 import { RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;

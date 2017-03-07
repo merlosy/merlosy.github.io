@@ -15,13 +15,7 @@ import { TodoComponent } from './todo/todo.component';
 import { ProjectsModule } from './projects/projects.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { SharedModule } from './shared/shared.module';
-
-const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home',  component: HomeComponent },
-  { path: 'projects',  component: ProjectsComponent },
-  { path: 'todo',  component: TodoComponent }
-];
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -30,7 +24,7 @@ const appRoutes: Routes = [
     TodoComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    APP_ROUTES,
     MaterialModule,
     CommonModule,
     BrowserModule,

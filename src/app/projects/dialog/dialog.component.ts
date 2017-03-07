@@ -16,7 +16,6 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('MODAL', this.project);
     this.service.getProjectDetails(this.project.name)
       .subscribe( p => this.project = p );
   }

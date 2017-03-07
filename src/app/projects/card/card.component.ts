@@ -1,5 +1,5 @@
 import { DialogComponent } from './../dialog/dialog.component';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewContainerRef } from '@angular/core';
 import { MdDialog, MdDialogConfig } from '@angular/material';
 
 @Component({
@@ -11,7 +11,7 @@ export class CardComponent implements OnInit {
 
   @Input() project: any;
 
-  constructor(public dialog: MdDialog) {
+  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef) {
     this.project = {};
   }
 
@@ -20,6 +20,7 @@ export class CardComponent implements OnInit {
 
   onDetails(): void {
     const config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
     config.data = {
       id: this.project.id,
       name: this.project.name,
