@@ -11,7 +11,7 @@ git checkout master
 # on nettoie la remote
 git status
 ls -al
-rm *.js index.html favicon.icon *.css
+rm *.js index.html favicon.ico *.css
 cp dist/* .
 rm -r dist
 git add index.html *.js *.css favicon.ico
