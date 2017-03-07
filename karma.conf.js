@@ -32,13 +32,6 @@ module.exports = function(config) {
         angularCli: {
             environment: 'dev'
         },
-        'report-config': {
-            // all options available at: https://github.com/istanbuljs/istanbul-reports/blob/590e6b0089f67b723a1fdf57bc7ccc080ff189d7/lib/html/index.js#L135-L137 
-            lcovonly: {
-                // outputs the report in ./coverage/coverage.lcov 
-                subdir: 'coverage.lcov'
-            }
-        },
         reporters: config.angularCli && config.angularCli.codeCoverage ? ['progress', 'coverage-istanbul'] : ['progress', 'kjhtml'],
         port: 9876,
         colors: true,
