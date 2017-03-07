@@ -3,6 +3,7 @@
 set -o errexit # Exit on error
 
 ng build --prod -aot
+git add -A dist
 git commit -am "pre-deploy"
 # on passe sur le master et on recupère le rep build
 git checkout master
