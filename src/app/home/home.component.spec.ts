@@ -1,12 +1,9 @@
-import { ActivatedRoute } from '@angular/router';
-import { PageHeaderComponent } from './../shared/page-header/page-header.component';
-/* tslint:disable:no-unused-variable */
+import { SharedModule } from './../shared/shared.module';
+import { MaterialModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import {} from 'jasmine';
 import { HomeComponent } from './home.component';
-import MockRouter from '../../test/MockRouter.spec';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -15,11 +12,12 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HomeComponent,
-        PageHeaderComponent
+        HomeComponent
       ],
-      providers: [
-        {provide: ActivatedRoute,  useClass: MockRouter },
+      imports: [
+        MaterialModule,
+        SharedModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();

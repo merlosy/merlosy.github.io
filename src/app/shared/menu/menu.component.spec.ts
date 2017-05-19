@@ -1,33 +1,48 @@
-/* tslint:disable:no-unused-variable */
+import { ROUTES_STUBS, DummyComponent } from './../../../test/routes-stubs';
 import { MaterialModule } from '@angular/material';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import { MenuComponent } from './menu.component';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
+import {} from 'jasmine';
+
+@Component({
+  selector: 'app-menu-test',
+  template: '<app-menu></app-menu>'
+})
+class TestMenuComponent {}
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
+  // let fixture: ComponentFixture<TestMenuComponent>;
   let fixture: ComponentFixture<MenuComponent>;
+  // let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         MenuComponent,
+        DummyComponent
+        // TestMenuComponent
       ],
-      imports: [ RouterTestingModule, MaterialModule ],
-      providers: [
-        RouterLink
+      imports: [
+        RouterTestingModule.withRoutes(ROUTES_STUBS),
+        MaterialModule
       ]
     })
     .compileComponents();
   }));
 
+  // beforeEach(inject([Router], (_router) => {
+  //   router = _router;
+  // }) );
+
   beforeEach(() => {
+    // fixture = TestBed.createComponent(TestMenuComponent);
     fixture = TestBed.createComponent(MenuComponent);
+    // component = fixture.debugElement.children[0].componentInstance;
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

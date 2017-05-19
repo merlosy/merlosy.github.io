@@ -32,7 +32,8 @@ import { APP_ROUTES } from './app.routes';
     HttpModule,
     JsonpModule,
     SharedModule,
-    ProjectsModule
+    ProjectsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

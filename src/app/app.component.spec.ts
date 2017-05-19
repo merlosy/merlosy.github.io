@@ -1,45 +1,31 @@
-/* tslint:disable:no-unused-variable */
-
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { ROUTES_STUBS, DummyComponent } from './../test/routes-stubs';
+import { SharedModule } from './shared/shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { Router, RouterOutlet, RouterLink, ActivatedRoute, RouterOutletMap } from '@angular/router';
-import { MenuComponent } from './shared/menu/menu.component';
 import { MaterialModule } from '@angular/material';
-import MockRouter from '../test/MockRouter.spec';
-
+import {} from 'jasmine';
 
 describe('AppComponent', () => {
 
-  let comp: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
-
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MenuComponent,
-        RouterOutlet
-      ],
-      providers: [
-        {provide: Router,  useClass: MockRouter },
-        {provide: ActivatedRoute,  useClass: MockRouter },
-        RouterLink,
-        RouterOutletMap
+        DummyComponent
       ],
       imports: [
-        MaterialModule
+        MaterialModule,
+        SharedModule,
+        RouterTestingModule.withRoutes(ROUTES_STUBS)
       ]
-    });
-    TestBed.compileComponents();
-    fixture = TestBed.createComponent(AppComponent);
-    comp = fixture.debugElement.componentInstance;
-  });
+    }).compileComponents();
+  }));
 
   it('should create the app', async(() => {
-    fixture.detectChanges();
-    expect(comp).toBeDefined();
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
   }));
 
 });

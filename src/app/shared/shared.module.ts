@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
@@ -10,7 +11,8 @@ import { PageHeaderComponent } from './page-header/page-header.component';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    HttpModule
   ],
   declarations: [
     MenuComponent,
@@ -19,9 +21,6 @@ import { PageHeaderComponent } from './page-header/page-header.component';
   exports: [
     MenuComponent,
     PageHeaderComponent
-  ],
-  providers: [
-    RouterLink
   ]
 })
 export class SharedModule { }

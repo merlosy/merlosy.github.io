@@ -1,3 +1,5 @@
+import { SharedModule } from './../shared/shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
@@ -21,16 +23,15 @@ describe('ProjectsComponent', () => {
       declarations: [
         ProjectsComponent,
         ListComponent,
-        PageHeaderComponent,
         CardComponent
       ],
       imports: [
         MaterialModule,
-        ReactiveFormsModule
+        SharedModule,
+        ReactiveFormsModule,
+        RouterTestingModule
       ],
-      providers: [
-        {provide: ActivatedRoute,  useClass: MockRouter },
-      ]
+      providers: []
     })
     .compileComponents();
   }));
