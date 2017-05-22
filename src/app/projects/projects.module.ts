@@ -3,6 +3,7 @@ import { ProjectsService } from './projects.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ListComponent } from './list/list.component';
 import { CardComponent } from './card/card.component';
@@ -17,9 +18,12 @@ import { DialogComponent } from './dialog/dialog.component';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    MdDialogModule
+    MdDialogModule,
+    BrowserAnimationsModule
   ],
-  entryComponents: [ DialogComponent ],
+  entryComponents: [
+    DialogComponent
+  ],
   exports: [
     ProjectsComponent
   ],

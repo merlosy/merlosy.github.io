@@ -1,3 +1,5 @@
+import { MockBackend } from '@angular/http/testing';
+import { Http, ConnectionBackend, RequestOptions, BaseRequestOptions } from '@angular/http';
 import { ProjectsModule } from './../projects.module';
 import { ProjectsService } from './../projects.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +28,10 @@ describe('ListComponent', () => {
         ReactiveFormsModule
       ],
       providers: [
-        ProjectsService
+        ProjectsService,
+        Http,
+        {provide: ConnectionBackend, useClass: MockBackend},
+        {provide: RequestOptions, useClass: BaseRequestOptions}
       ]
     })
     .compileComponents();

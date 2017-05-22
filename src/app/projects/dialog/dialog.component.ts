@@ -1,6 +1,6 @@
 import { ProjectsService } from './../projects.service';
-import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-dialog',
@@ -11,8 +11,8 @@ export class DialogComponent implements OnInit {
 
   private project: any;
 
-  constructor(public dialogRef: MdDialogRef<DialogComponent>, private service: ProjectsService) {
-    this.project = this.dialogRef.config.data;
+  constructor(@Inject(MD_DIALOG_DATA) public data: any, private service: ProjectsService) {
+    this.project = data;
   }
 
   ngOnInit() {

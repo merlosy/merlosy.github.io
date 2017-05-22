@@ -28,10 +28,10 @@ import { APP_ROUTES } from './app.routes';
     MaterialModule,
     CommonModule,
     BrowserModule,
+    SharedModule,
     FormsModule,
     HttpModule,
     JsonpModule,
-    SharedModule,
     ProjectsModule,
     RouterModule
   ],

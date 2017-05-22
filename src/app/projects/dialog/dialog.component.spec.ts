@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { MockBackend } from '@angular/http/testing';
+import { CommonModule } from '@angular/common';
 import { Http, ConnectionBackend, RequestOptions, BaseRequestOptions } from '@angular/http';
 import { ProjectsService } from './../projects.service';
 import { MdDialogModule, MdDialogRef, MdDialog, MdDialogActions, MaterialModule, MdDialogConfig } from '@angular/material';
@@ -7,6 +7,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogComponent } from './dialog.component';
 import { NgModule } from '@angular/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -35,8 +36,9 @@ describe('DialogComponent', () => {
         {provide: MdDialogRef, useClass: MdDialogRefMock}
       ],
       imports: [
+        MaterialModule,
         MdDialogModuleMock,
-        MdDialogModule
+        NoopAnimationsModule
       ]
     })
     .compileComponents();
