@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
-// Add the RxJS Observable operators.
-import './rxjs-operators';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -38,4 +36,5 @@ import { APP_ROUTES } from './app.routes';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,4 +1,7 @@
 <md-toolbar color="primary">
+    <a md-icon-button (click)="sidemenu.toggle()">
+        <md-icon>menu</md-icon>
+    </a>
     <a md-button [routerLink]="['/home']">Merlosy</a>
     <a md-button [routerLink]="['/projects']">PROJECTS</a>
     <span class="example-spacer"></span>
