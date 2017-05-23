@@ -1,11 +1,12 @@
 import { DialogComponent } from './../dialog/dialog.component';
-import { Component, OnInit, Input, Output, EventEmitter, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewContainerRef, ChangeDetectionStrategy } from '@angular/core';
 import { MdDialog, MdDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent implements OnInit {
 

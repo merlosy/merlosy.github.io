@@ -3,8 +3,8 @@
 
         <md-nav-list>
             <h3 md-subheader>Merlosy</h3>
-            <a md-list-item [routerLink]="['/home']">Home</a>
-            <a md-list-item [routerLink]="['/projects']">Projects</a>
+            <a md-list-item [routerLink]="['/home']" (click)="sidenav.toggle()">Home</a>
+            <a md-list-item [routerLink]="['/projects']" (click)="sidenav.toggle()">Projects</a>
         </md-nav-list>
         <md-divider></md-divider>
         <md-nav-list>
