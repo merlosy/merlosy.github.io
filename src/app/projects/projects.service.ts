@@ -6,7 +6,7 @@ import 'rxjs/add/observable/throw';
 import { Apollo } from 'apollo-angular';
 import { DocumentNode } from '@types/graphql';
 
-import { Repository, RepositoriesQuery } from './model/schema';
+import { RepositoriesQuery } from './model/schema';
 // import { loader } from 'graphql-tag/loader';
 // const RepositoriesQueryNode: DocumentNode = loader('./model/Repositories.graphql');
 
