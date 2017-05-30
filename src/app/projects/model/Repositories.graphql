@@ -1,0 +1,13 @@
+query Repositories($owner: String!){
+	user(login: $owner) {
+		repositories(last: 100) {
+			nodes {
+				name
+				description
+				url
+				homepageUrl
+				isFork
+			}
+		}
+	}
+}
