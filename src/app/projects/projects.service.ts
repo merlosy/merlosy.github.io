@@ -1,7 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import 'rxjs/add/observable/throw';
+import { Apollo } from 'apollo-angular';
+import { DocumentNode } from '@types/graphql';
+
+import { Repository, RepositoriesQuery } from './model/schema';
+// import { loader } from 'graphql-tag/loader';
+// const RepositoriesQueryNode: DocumentNode = loader('./model/Repositories.graphql');
+
+declare function require(name: string);
+import * as graphQlLoader from 'graphql-tag/loader';
+// const RepositoriesQueryNode: DocumentNode = graphQlLoader('./model/Repositories.graphql');
+const RepositoriesQueryNode: DocumentNode = require('graphql-tag/loader!./model/Repositories.graphql');
 
 @Injectable()
 export class ProjectsService {
@@ -13,10 +25,20 @@ export class ProjectsService {
   /**
    * @see https://developer.github.com/v3/
    */
-  constructor(private http: Http) {
+  constructor(private http: Http, private _apollo: Apollo) {
     this.headers = new Headers();
-    // this.headers.append('Accept', 'application/vnd.github.v3+json');
-    this.headers.append('Accept', 'application/vnd.github.inertia-preview+json');
+    this.headers.append('Accept', 'application/vnd.github.v3+json');
+  }
+
+  getGraphRepos(username: string): Observable<RepositoriesQuery> {
+    return this._apollo.watchQuery<RepositoriesQuery>({
+      query: RepositoriesQueryNode,
+      variables: {
+        owner: username
+      },
+    })
+      // Return only users, not the whole ApolloQueryResult
+      .map(result => result.data) as any;
   }
 
   /**

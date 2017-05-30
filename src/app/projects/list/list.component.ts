@@ -58,11 +58,15 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   getProjects() {
+    const toto = this.service.getGraphRepos('merlosy').subscribe(d => {
+      console.log('REP', d);
+    });
+
     this.projects = this.service.getProjects()
         .map(p => {
           const fork = this.searchForm.get('fork').value;
           const own = this.searchForm.get('owner').value;
-          let u: any[] = [];
+          const u: any[] = [];
           for (const i of p) {
             if ( (!!i.fork && !!fork && !own) || (!i.fork && !fork && !!own) || (!!fork && !!own) ) {
               u.push(i);

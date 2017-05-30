@@ -7,13 +7,19 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 
+import { ApolloClient, createNetworkInterface } from 'apollo-client';
+import { ApolloModule } from 'apollo-angular';
+import { provideApolloClient } from 'app/shared/apollo.service';
+
+
 @NgModule({
   imports: [
     CommonModule,
     MdSidenavModule,
     MaterialModule,
     RouterModule,
-    HttpModule
+    HttpModule,
+    ApolloModule.forRoot(provideApolloClient)
   ],
   declarations: [
     MenuComponent,
