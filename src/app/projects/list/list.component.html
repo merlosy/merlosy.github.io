@@ -1,7 +1,7 @@
 <mat-card class="form-card">
     <mat-card-content>
         <h2>Filters</h2>
-        <form novalidate (ngSubmit)="onSubmit(searchForm)" [formGroup]="searchForm">
+        <form novalidate [formGroup]="searchForm">
             <section class="example-section">
                 <mat-checkbox class="example-margin" formControlName="owner">Owned</mat-checkbox>
                 <mat-checkbox class="example-margin" formControlName="fork">Forked</mat-checkbox>

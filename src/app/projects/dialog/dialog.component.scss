@@ -1,0 +1,43 @@
+@import '../../../styles/merlosy-theme';
+.actions {
+    justify-content: flex-end;
+}
+
+.centered {
+    text-align: center;
+    &>* {
+        margin: 0 auto;
+    }
+}
+
+.chip-button {
+    padding: 0;
+    border: none;
+    border-radius: 18px;
+    text-decoration: none;
+}
+
+.mat-chip .chip-badge {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    padding: 8px;
+    margin: -6px -10px -6px 5px;
+    border-radius: 50%;
+    min-width: 32px;
+    min-height: 32px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.mat-chip.mat-primary.mat-chip-selected .chip-badge {
+    color: mat-color($merlosy-primary);
+}
+
+.mat-chip.mat-accent.mat-chip-selected .chip-badge {
+    color: mat-color($merlosy-accent);
+}
+
+.mat-chip.mat-warn.mat-chip-selected .chip-badge {
+    color: mat-color($merlosy-warn);
+}

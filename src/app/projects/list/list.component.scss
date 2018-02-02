@@ -1,13 +1,5 @@
-@import '../../../styles/merlosy-theme';
 .form-card {
     margin-bottom: 20px;
-}
-
-$card-width: 60px;
-.project-card {
-    width: calc(100% - 50px);
-    height: calc(100% - 50px);
-    padding-right: calc(#{$card-width} + 10px);
 }
 
 .example-section {
@@ -21,16 +13,10 @@ $card-width: 60px;
     margin: 0 10px;
 }
 
-.tools {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
+.grid-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: start;
     align-items: stretch;
     flex-wrap: nowrap;
     width: $card-width;

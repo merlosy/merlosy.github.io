@@ -1,23 +1,33 @@
 import { Observable } from 'rxjs/Observable';
 import { ProjectsService } from './../projects.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map, tap, take, catchError } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import { Subscription } from 'rxjs/Subscription';
+import { MatSnackBar } from '@angular/material';
+
+export interface SearchForm {
+  fork: boolean;
+  owner: boolean;
+}
 
 @Component({
-  selector: 'app-project-list',
+  selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   providers:  [ ProjectsService ]
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
   projects: Observable<any[]>;
+  issuesSubscriber: Subscription;
+  formSubscriber: Subscription;
   errorMessage: string;
   selectedProject: any;
   searchForm: FormGroup;
   private projectDetails: any[];
 
-  constructor(private service: ProjectsService, private fb: FormBuilder) { }
+  constructor(private service: ProjectsService, private fb: FormBuilder, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.searchForm = this.fb.group({
@@ -44,11 +54,21 @@ export class ListComponent implements OnInit {
     console.log(form.value, form.valid);
   }
 
+  ngOnDestroy() {
+    if (this.issuesSubscriber) {
+      this.issuesSubscriber.unsubscribe();
+    }
+    if (this.formSubscriber) {
+      this.formSubscriber.unsubscribe();
+    }
+  }
+
   open(project) {
-    console.log(project);
+    // console.log(project);
     // this.projectDetails = this.service.getProjectIssues(project.name)
     this.service.getProjectIssues(project.name).pipe(
-      tap(u => console.log(u) )
+      tap(u => console.log(u) ),
+      take(1)
     ).subscribe(
             p => this.projectDetails = p,
             error =>  this.errorMessage = <any>error);
@@ -65,21 +85,19 @@ export class ListComponent implements OnInit {
               u.push(i);
             }
           }
-          console.log('getProjects', u);
+          //console.log('getProjects', u);
           return u;
+        }),
+        catchError( (error, caught) => {
+          //console.log(error, caught);
+          const data = JSON.parse(error._body);
+          this.snackBar.open(data.message, 'Close');
+          return of([]);
         })
-      )
-        // .subscribe(
-        //     projects => this.projects = projects,
-        //     error =>  this.errorMessage = <any>error)
-        ;
+      );
+      return this.projects;
   }
 
   selectProject(project) { this.selectedProject = project; }
 
-}
-
-export interface SearchForm {
-  fork: boolean;
-  owner: boolean;
 }

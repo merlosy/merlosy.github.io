@@ -55,7 +55,11 @@ import 'core-js/es7/reflect';
 
 
 /***************************************************************************************************
+<<<<<<< HEAD
  * Zone JS is required by default for Angular itself.
+=======
+ * Zone JS is required by Angular itself.
+>>>>>>> origin/dev-ng
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
@@ -64,3 +68,12 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+<<<<<<< HEAD
+=======
+
+/**
+ * Date, currency, decimal and percent pipes.
+ * Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10
+ */
+// import 'intl';  // Run `npm install --save intl`.
+>>>>>>> origin/dev-ng

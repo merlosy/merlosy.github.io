@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -20,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     CommonModule,
     BrowserModule,
+    SharedModule,
     FormsModule,
     HttpClientModule,
     // RouterModule.forRoot(appRoutes),
@@ -33,4 +37,5 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

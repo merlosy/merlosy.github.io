@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterLink } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +6,8 @@ import { RouterModule, RouterLink } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+
+  @Input() sidemenu: any;
 
   constructor() { }
 
