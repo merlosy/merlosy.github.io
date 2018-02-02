@@ -1,14 +1,14 @@
-<md-toolbar color="primary">
-    <a md-button routerLink="/home">Merlosy</a>
-    <a md-button routerLink="/projects">PROJECTS</a>
+<mat-toolbar color="primary">
+    <a mat-button [routerLink]="['/home']">Merlosy</a>
+    <a mat-button [routerLink]="['/projects']">PROJECTS</a>
     <span class="example-spacer"></span>
 
-    <a md-icon-button routerLink="/todo">
-        <md-icon class="example-icon">alarm_add</md-icon>
+    <a mat-icon-button [routerLink]="['/todo']">
+        <mat-icon class="example-icon">alarm_add</mat-icon>
     </a>
-    <span md-tooltip="Contact">
-        <button md-icon-button>
-            <md-icon class="example-icon">person</md-icon>
+    <span mat-tooltip="Contact">
+        <button mat-icon-button>
+            <mat-icon class="example-icon">person</mat-icon>
         </button>
     </span>
-</md-toolbar>
+</mat-toolbar>

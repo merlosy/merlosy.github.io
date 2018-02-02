@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,6 @@ import { RouterModule, RouterLink } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(private routerLink: RouterLink){}
+  constructor() {}
 
 }

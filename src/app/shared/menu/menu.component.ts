@@ -8,7 +8,7 @@ import { RouterModule, RouterLink } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private routerLink: RouterLink) { }
+  constructor() { }
 
   ngOnInit() {
   }

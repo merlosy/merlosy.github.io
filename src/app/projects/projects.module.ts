@@ -1,4 +1,3 @@
-import { MaterialModule } from '@angular/material';
 import { ProjectsService } from './projects.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,14 +6,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './list/list.component';
 import { ProjectsComponent } from './projects.component';
 import { SharedModule } from './../shared/shared.module';
+import {
+  MatCheckboxModule, MatRadioModule, MatCardModule, MatChipsModule,
+  MatIconModule,
+  MatGridListModule,
+  MatButtonModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatIconModule,
+    MatGridListModule,
+    MatRadioModule
   ],
   exports: [
     ProjectsComponent

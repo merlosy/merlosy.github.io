@@ -1,44 +1,56 @@
-<md-card class="form-card">
-    <md-card-content>
+<mat-card class="form-card">
+    <mat-card-content>
         <h2>Filters</h2>
         <form novalidate (ngSubmit)="onSubmit(searchForm)" [formGroup]="searchForm">
             <section class="example-section">
-                <md-checkbox class="example-margin" formControlName="owner">Owned</md-checkbox>
-                <md-checkbox class="example-margin" formControlName="fork">Forked</md-checkbox>
+                <mat-checkbox class="example-margin" formControlName="owner">Owned</mat-checkbox>
+                <mat-checkbox class="example-margin" formControlName="fork">Forked</mat-checkbox>
+            </section>
+            <section class="example-section">
+                <mat-radio-group formControlName="sort">
+                    <mat-radio-button value="full_name">Name</mat-radio-button>
+                    <mat-radio-button value="created">Creation</mat-radio-button>
+                    <mat-radio-button value="updated">Last update</mat-radio-button>
+                    <mat-radio-button value="pushed">Last push</mat-radio-button>
+                </mat-radio-group>
+            </section>
+            <section class="example-section">
+                <mat-radio-group formControlName="type">
+                    <mat-radio-button value="owner">Propriétaire</mat-radio-button>
+                    <mat-radio-button value="member">Membre</mat-radio-button>
+                    <mat-radio-button value="all">Tout</mat-radio-button>
+                </mat-radio-group>
             </section>
         </form>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>
 
-<md-grid-list cols="5" gutterSize="10">
-    <md-grid-tile *ngFor="let project of projects | async">
+<mat-grid-list cols="5" gutterSize="10">
+    <mat-grid-tile *ngFor="let project of projects | async">
 
-        <md-card class="project-card">
-            <md-card-header>
-                <md-card-title>{{project.name}}</md-card-title>
-                <button md-icon-button (click)="open(project)">
-                    <md-icon class="example-icon">more_horiz</md-icon>
-                </button>
-            </md-card-header>
+        <mat-card class="project-card">
+            <mat-card-header>
+                <mat-card-title>{{project.name}}</mat-card-title>
+            </mat-card-header>
             <div class="tools">
-                <div><button md-icon-button (click)="open(project)">
-                    <md-icon class="example-icon">more_horiz</md-icon>
+                <div><button mat-icon-button (click)="open(project)">
+                    <mat-icon class="example-icon">more_horiz</mat-icon>
                 </button></div>
-                <div><button md-icon-button>
-                    <md-icon class="example-icon">error_outline</md-icon>
+                <div><button mat-icon-button>
+                    <mat-icon class="example-icon">error_outline</mat-icon>
                 </button></div>
-                <div><button md-icon-button>
-                    <md-icon class="example-icon">star</md-icon>
+                <div><button mat-icon-button>
+                    <mat-icon class="example-icon">star</mat-icon>
                 </button></div>
             </div>
             <p>{{project.description}}</p>
-            <md-chip-list>
-                <md-chip color="primary" selected="true">{{project.fork? 'fork' : 'owner'}}</md-chip>
-            </md-chip-list>
-            <md-card-actions>
-                <a md-button href="{{project.html_url}}" target="_blank">SEE</a>
-            </md-card-actions>
-        </md-card>
+            <mat-chip-list>
+                <mat-chip color="primary" selected="true">{{project.fork? 'fork' : 'owner'}}</mat-chip>
+            </mat-chip-list>
+            <mat-card-actions>
+                <a mat-button href="{{project.html_url}}" target="_blank">SEE</a>
+            </mat-card-actions>
+        </mat-card>
 
-    </md-grid-tile>
-</md-grid-list>
+    </mat-grid-tile>
+</mat-grid-list>
