@@ -1,8 +1,8 @@
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from 'app/home/home.component';
-import { MatChipsModule, MatIconModule, MatGridListModule } from '@angular/material';
+import { HomeComponent } from './home.component';
+import { MatChipsModule, MatIconModule, MatGridListModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -10,6 +10,7 @@ import { MatChipsModule, MatIconModule, MatGridListModule } from '@angular/mater
     SharedModule,
     MatChipsModule,
     MatIconModule,
+    MatCardModule,
     MatGridListModule
   ],
   declarations: [

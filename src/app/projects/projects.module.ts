@@ -13,7 +13,9 @@ import {
   MatIconModule,
   MatGridListModule,
   MatButtonModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatProgressSpinnerModule,
+  MatDialogModule
 } from '@angular/material';
 import { DialogComponent } from './dialog/dialog.component';
 
@@ -27,9 +29,11 @@ import { DialogComponent } from './dialog/dialog.component';
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatDialogModule,
     MatIconModule,
     MatGridListModule,
     MatRadioModule,
+    MatProgressSpinnerModule,
     MatSnackBarModule
   ],
   exports: [
@@ -39,6 +43,9 @@ import { DialogComponent } from './dialog/dialog.component';
     ListComponent,
     CardComponent,
     ProjectsComponent,
+    DialogComponent
+  ],
+  entryComponents: [
     DialogComponent
   ],
   providers: [

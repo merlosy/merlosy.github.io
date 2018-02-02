@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
 export class ProjectsService {
@@ -62,7 +63,7 @@ export class ProjectsService {
       errMsg = error.message ? error.message : error.toString();
     }
     console.error(errMsg);
-    return Observable.throw(errMsg);
+    return new ErrorObservable(errMsg);
   }
 
 }

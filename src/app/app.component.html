@@ -1,21 +1,21 @@
-<md-sidenav-container>
-    <md-sidenav #sidenav mode="over" class="md-sidenav-main">
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" class="mat-sidenav-main">
 
-        <md-nav-list>
+        <mat-nav-list>
             <h3 md-subheader>Merlosy</h3>
-            <a md-list-item [routerLink]="['/home']" (click)="sidenav.toggle()">Home</a>
-            <a md-list-item [routerLink]="['/projects']" (click)="sidenav.toggle()">Projects</a>
-        </md-nav-list>
-        <md-divider></md-divider>
-        <md-nav-list>
+            <a mat-list-item [routerLink]="['/home']" (click)="sidenav.toggle()">Home</a>
+            <a mat-list-item [routerLink]="['/projects']" (click)="sidenav.toggle()">Projects</a>
+        </mat-nav-list>
+        <mat-divider></mat-divider>
+        <mat-nav-list>
             <h3 md-subheader>Other related work</h3>
-            <a md-list-item href="https://gist.github.com/merlosy" target="_blank">Gist</a>
-            <a md-list-item href="https://plnkr.co/users/merlosy" target="_blank">Plunker</a>
-        </md-nav-list>
-    </md-sidenav>
+            <a mat-list-item href="https://gist.github.com/merlosy" target="_blank">Gist</a>
+            <a mat-list-item href="https://plnkr.co/users/merlosy" target="_blank">Plunker</a>
+        </mat-nav-list>
+    </mat-sidenav>
 
     <app-menu [sidemenu]="sidenav"></app-menu>
 
     <router-outlet></router-outlet>
 
-</md-sidenav-container>
+</mat-sidenav-container>

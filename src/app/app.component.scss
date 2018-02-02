@@ -11,7 +11,7 @@
           padding-top: 64px;
       }
       
-      md-sidenav-container {
+      mat-sidenav-container {
           min-height: 100%;
       }
       
@@ -21,24 +21,24 @@
           width: 100%;
       }
       
-      md-sidenav.md-sidenav-main {
+      mat-sidenav.mat-sidenav-main {
           min-width: 12vw;
           background-color: $dark-bg;
       }
       
-      md-sidenav.md-sidenav-main .mat-list .mat-subheader,
-      md-sidenav.md-sidenav-main .mat-nav-list .mat-subheader {
+      mat-sidenav.mat-sidenav-main .mat-list .mat-subheader,
+      mat-sidenav.mat-sidenav-main .mat-nav-list .mat-subheader {
           color: lighten( $dark-fore, 30%);
       }
       
-      md-sidenav.md-sidenav-main .mat-list .mat-list-item,
-      md-sidenav.md-sidenav-main .mat-nav-list .mat-list-item {
+      mat-sidenav.mat-sidenav-main .mat-list .mat-list-item,
+      mat-sidenav.mat-sidenav-main .mat-nav-list .mat-list-item {
           color: #ffffff;
       }
       
-      md-sidenav.md-sidenav-main .mat-list a:hover,
-      md-sidenav.md-sidenav-main .mat-list a:focus,
-      md-sidenav.md-sidenav-main .mat-nav-list a:hover,
-      md-sidenav.md-sidenav-main .mat-nav-list a:focus {
+      mat-sidenav.mat-sidenav-main .mat-list a:hover,
+      mat-sidenav.mat-sidenav-main .mat-list a:focus,
+      mat-sidenav.mat-sidenav-main .mat-nav-list a:hover,
+      mat-sidenav.mat-sidenav-main .mat-nav-list a:focus {
           background-color: lighten($dark-bg, 12%);
       }

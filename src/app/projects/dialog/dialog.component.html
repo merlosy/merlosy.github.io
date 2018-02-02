@@ -1,23 +1,24 @@
-<h1 md-dialog-title>{{project.name}}</h1>
-<div md-dialog-content>
-    <div *ngIf="!project.subscribers_count" class="centered">
-        <md-spinner></md-spinner>
+<h1 mat-dialog-title>{{project.name}}</h1>
+<div mat-dialog-content>
+		<!-- <pre>{{project | json}}</pre> -->
+    <div *ngIf="!project.id" class="centered">
+        <mat-spinner></mat-spinner>
     </div>
-    <div *ngIf="project.subscribers_count">
+    <div *ngIf="project.id">
         <p>{{project.description}}</p>
-        <div md-chip-list>
-            <div md-chip color="accent" selected="true">Subscribers<span class="chip-badge">{{project.subscribers_count}}</span></div>
+        <div mat-chip-list>
+            <div mat-chip color="accent" selected="true">Watchers<span class="chip-badge">{{project.watchers_count}}</span></div>
             <a class="chip-button" [href]="project.html_url+'/stargazers'">
-                <div md-chip color="primary" selected="true">Stargazers<span class="chip-badge">{{project.stargazers_count}}</span></div>
+                <div mat-chip color="primary" selected="true">Stargazers<span class="chip-badge">{{project.stargazers_count}}</span></div>
             </a>
             <a class="chip-button" [href]="project.html_url+'/fork'">
-                <div md-chip>Forks<span class="chip-badge">{{project.forks_count}}</span></div>
+                <div mat-chip>Forks<span class="chip-badge">{{project.forks_count}}</span></div>
             </a>
-            <div md-chip color="warn" selected="true">Open Issues<span class="chip-badge">{{project.open_issues_count}}</span></div>
+            <div mat-chip color="warn" selected="true">Open Issues<span class="chip-badge">{{project.open_issues_count}}</span></div>
         </div>
     </div>
 </div>
-<div md-dialog-actions class="actions">
-    <button md-raised-button md-dialog-close>Close</button>
-    <!--<button md-raised-button (click)="dialogRef.close('yes')">Yes</button>-->
+<div mat-dialog-actions class="actions">
+    <button mat-raised-button mat-dialog-close>Close</button>
+    <!--<button mat-raised-button (click)="dialogRef.close('yes')">Yes</button>-->
 </div>

@@ -1,11 +1,10 @@
-import { MatCardModule, MatListModule } from '@angular/material';
+import { MatCardModule, MatListModule, MatSidenavModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -14,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     FormsModule,
     HttpClientModule,
@@ -32,7 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule,
     ProjectsModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

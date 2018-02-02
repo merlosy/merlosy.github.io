@@ -2,7 +2,7 @@ import { MockBackend } from '@angular/http/testing';
 import { CommonModule } from '@angular/common';
 import { Http, ConnectionBackend, RequestOptions, BaseRequestOptions } from '@angular/http';
 import { ProjectsService } from './../projects.service';
-import { MdDialogModule, MdDialogRef, MdDialog, MdDialogActions, MaterialModule, MdDialogConfig } from '@angular/material';
+import { MatDialogModule, MatDialogRef, MatDialog, MatDialogActions, MaterialModule, MatDialogConfig } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogComponent } from './dialog.component';
@@ -16,15 +16,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     exports: [DialogComponent],
     imports: [ CommonModule, MaterialModule ]
 })
-class MdDialogModuleMock { }
+class MatDialogModuleMock { }
 
-class MdDialogRefMock {
+class MatDialogRefMock {
   public data: any = {};
 }
 describe('DialogComponent', () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
-  let dialog: MdDialog;
+  let dialog: MatDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -33,11 +33,11 @@ describe('DialogComponent', () => {
         Http,
         {provide: ConnectionBackend, useClass: MockBackend},
         {provide: RequestOptions, useClass: BaseRequestOptions},
-        {provide: MdDialogRef, useClass: MdDialogRefMock}
+        {provide: MatDialogRef, useClass: MatDialogRefMock}
       ],
       imports: [
         MaterialModule,
-        MdDialogModuleMock,
+        MatDialogModuleMock,
         NoopAnimationsModule
       ]
     })
@@ -45,8 +45,8 @@ describe('DialogComponent', () => {
   }));
 
   beforeEach(() => {
-    dialog = TestBed.get(MdDialog);
-    let config = new MdDialogConfig();
+    dialog = TestBed.get(MatDialog);
+    let config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.data = {
       id: 1,

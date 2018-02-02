@@ -1,6 +1,6 @@
 import { DialogComponent } from './../dialog/dialog.component';
-import { Component, OnInit, Input, Output, EventEmitter, ViewContainerRef, ChangeDetectionStrategy } from '@angular/core';
-import { MdDialog, MdDialogConfig } from '@angular/material';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-card',
@@ -12,7 +12,7 @@ export class CardComponent implements OnInit {
 
   @Input() project: any;
 
-  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef) {
+  constructor(private dialog: MatDialog) {
     this.project = {};
   }
 
@@ -20,13 +20,8 @@ export class CardComponent implements OnInit {
   }
 
   onDetails(): void {
-    const config = new MdDialogConfig();
-    config.viewContainerRef = this.viewContainerRef;
-    config.data = {
-      id: this.project.id,
-      name: this.project.name,
-      url: this.project.url,
-    };
+    const config = new MatDialogConfig();
+    config.data = { project: this.project };
     config.width = '600px';
     const dialogRef = this.dialog.open(DialogComponent, config);
     dialogRef.afterClosed().subscribe(result => {

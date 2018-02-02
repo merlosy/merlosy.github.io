@@ -2,7 +2,8 @@
 $card-width: 60px;
 :host {
     padding: 5px;
-    box-sizing: border-box;
+		box-sizing: border-box;
+		display: flex;
 }
 
 @media (max-width: 768px) {
@@ -29,14 +30,15 @@ $card-width: 60px;
     }
 }
 
-md-card {
+mat-card {
     padding-right: calc(#{$card-width} + 10px);
-    // min-height: 130px;
+		// min-height: 130px;
+		width: 100%;
     height: 100%;
     box-sizing: border-box;
 }
 
-md-card-title>* {
+mat-card-title>* {
     margin-top: 0;
     margin-left: 0;
 }

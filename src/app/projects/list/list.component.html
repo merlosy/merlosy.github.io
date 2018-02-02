@@ -25,32 +25,6 @@
     </mat-card-content>
 </mat-card>
 
-<mat-grid-list cols="5" gutterSize="10">
-    <mat-grid-tile *ngFor="let project of projects | async">
-
-        <mat-card class="project-card">
-            <mat-card-header>
-                <mat-card-title>{{project.name}}</mat-card-title>
-            </mat-card-header>
-            <div class="tools">
-                <div><button mat-icon-button (click)="open(project)">
-                    <mat-icon class="example-icon">more_horiz</mat-icon>
-                </button></div>
-                <div><button mat-icon-button>
-                    <mat-icon class="example-icon">error_outline</mat-icon>
-                </button></div>
-                <div><button mat-icon-button>
-                    <mat-icon class="example-icon">star</mat-icon>
-                </button></div>
-            </div>
-            <p>{{project.description}}</p>
-            <mat-chip-list>
-                <mat-chip color="primary" selected="true">{{project.fork? 'fork' : 'owner'}}</mat-chip>
-            </mat-chip-list>
-            <mat-card-actions>
-                <a mat-button href="{{project.html_url}}" target="_blank">SEE</a>
-            </mat-card-actions>
-        </mat-card>
-
-    </mat-grid-tile>
-</mat-grid-list>
+<div class="grid-container">
+  <app-card *ngFor="let project of projects | async" [project]="project"></app-card>
+</div>
